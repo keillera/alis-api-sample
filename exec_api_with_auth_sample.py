@@ -4,6 +4,7 @@ from warrant.aws_srp import AWSSRP
 
 # init
 POOL_ID = 'ap-northeast-1_HNT0fUj4J'
+POOL_REGION = 'ap-northeast-1'
 CLIENT_ID = '2gri5iuukve302i4ghclh6p5rg'
 # set login user_id
 USERNAME = '<user_id>'
@@ -11,7 +12,7 @@ USERNAME = '<user_id>'
 PASSWORD = '<password>'
 
 # get id token
-aws = AWSSRP(username=USERNAME, password=PASSWORD, pool_id=POOL_ID, client_id=CLIENT_ID)
+aws = AWSSRP(username=USERNAME, password=PASSWORD, pool_id=POOL_ID, client_id=CLIENT_ID, pool_region=POOL_REGION)
 id_token = aws.authenticate_user()['AuthenticationResult']['IdToken']
 
 # access api with auth
