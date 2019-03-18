@@ -1,4 +1,3 @@
-import json
 import urllib.request
 from warrant.aws_srp import AWSSRP
 
@@ -16,17 +15,12 @@ aws = AWSSRP(username=USERNAME, password=PASSWORD, pool_id=POOL_ID, client_id=CL
 id_token = aws.authenticate_user()['AuthenticationResult']['IdToken']
 
 # access api with auth
-url = 'https://alis.to/api/me/articles/drafts'
-data = {
-    'title': 'title',
-    'body': 'text',
-    'overview': 'overview'
-}
-method = 'POST'
+url = 'https://alis.to/api/me/info'
+method = 'GET'
 headers = {'Authorization': id_token}
-request = urllib.request.Request(url, data=json.dumps(data).encode('utf-8'), method=method, headers=headers)
+request = urllib.request.Request(url, method=method, headers=headers)
 with urllib.request.urlopen(request) as response:
     response_body = response.read().decode('utf-8')
 
-# print response(article_id)
+# print response(user info)
 print(response_body)
