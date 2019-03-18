@@ -1,3 +1,7 @@
+################################
+# require ~/.aws/credentials
+################################
+
 import urllib.request
 from warrant.aws_srp import AWSSRP
 
