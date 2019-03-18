@@ -1,5 +1,10 @@
 ################################
-# require ~/.aws/credentials
+# require environment variables of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
+# The environment variables are dummy value and there is no problem.
+#
+# export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxxx 
+# export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx 
+# python exec_api_with_auth_sample.py
 ################################
 
 import urllib.request
